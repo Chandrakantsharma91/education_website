@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block title %}Add PYQs - ExamMate & NotesMaker{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="fw-bold mb-3">Add Previous Year Questions - PK.Hindustani</h1>
+                <p class="lead text-muted">Upload question papers for student practice</p>
+                <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+                    <span class="badge bg-primary">Exam Papers</span>
+                    <span class="badge bg-success">Admin Only</span>
+                    <span class="badge bg-info">Practice Material</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add PYQ Form -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-danger text-white">
+                        <h4 class="mb-0"><i class="fas fa-plus me-2"></i>Add Question Paper</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="file" class="form-label fw-bold">Select PDF File</label>
+                                <input type="file" class="form-control" id="file" name="file" accept=".pdf" required>
+                                <div class="form-text">Upload the PDF file containing the question paper</div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="university" class="form-label fw-bold">University</label>
+                                    <input type="text" class="form-control" id="university" name="university" placeholder="e.g., Delhi University, IIT, Anna University">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="course" class="form-label fw-bold">Course</label>
+                                    <input type="text" class="form-control" id="course" name="course" placeholder="e.g., B.Tech, MBA, B.Sc">
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="year" class="form-label fw-bold">Year</label>
+                                    <input type="text" class="form-control" id="year" name="year" placeholder="e.g., 2023, 2022, Semester 1">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="exam_type" class="form-label fw-bold">Exam Type</label>
+                                    <select class="form-select" id="exam_type" name="exam_type">
+                                        <option value="">Select Exam Type</option>
+                                        <option value="Final Exam">Final Exam</option>
+                                        <option value="Mid Semester">Mid Semester</option>
+                                        <option value="Entrance Test">Entrance Test</option>
+                                        <option value="Practice Paper">Practice Paper</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="description" class="form-label fw-bold">Description</label>
+                                <textarea class="form-control" id="description" name="description" rows="4" placeholder="Describe this question paper (e.g., 'Mathematics - 2023 Final Exam', 'Physics - Mid Semester 2022')" required></textarea>
+                                <div class="form-text">Provide details about the exam, year, and course</div>
+                            </div>
+                            
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <strong>Note:</strong> The uploaded PYQ will be immediately available to students after submission.
+                            </div>
+                            
+                            <div class="d-flex gap-3">
+                                <button type="submit" class="btn btn-danger btn-lg">
+                                    <i class="fas fa-upload me-2"></i>Upload PYQ
+                                </button>
+                                <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-secondary btn-lg">
+                                    <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Guidelines -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h3 class="fw-bold mb-4">PYQ Upload Guidelines</h3>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title text-success">
+                                    <i class="fas fa-check-circle me-2"></i>Recommended Content
+                                </h5>
+                                <ul class="list-unstyled ms-3">
+                                    <li><i class="fas fa-check text-success me-2"></i>University exam papers</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Entrance test papers</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Previous semester exams</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Practice question papers</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title text-danger">
+                                    <i class="fas fa-times-circle me-2"></i>Prohibited Content
+                                </h5>
+                                <ul class="list-unstyled ms-3">
+                                    <li><i class="fas fa-times text-danger me-2"></i>Copyrighted exam papers</li>
+                                    <li><i class="fas fa-times text-danger me-2"></i>Incomplete or poor quality scans</li>
+                                    <li><i class="fas fa-times text-danger me-2"></i>Irrelevant or misleading descriptions</li>
+                                    <li><i class="fas fa-times text-danger me-2"></i>Personal information</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-warning">
+                    <h6 class="alert-heading"><i class="fas fa-exclamation-triangle me-2"></i>Quality Standards:</h6>
+                    <ul class="mb-0">
+                        <li>Ensure PDF files are clear and readable</li>
+                        <li>Provide accurate exam details and year</li>
+                        <li>Use descriptive and informative titles</li>
+                        <li>Verify content is appropriate for students</li>
+                        <li>Include course and university information</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h4 class="fw-bold mb-3">Benefits of PYQs</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <i class="fas fa-star text-warning me-2"></i>
+                        <strong>Exam Pattern:</strong> Familiarize students with question formats
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-star text-warning me-2"></i>
+                        <strong>Important Topics:</strong> Identify frequently asked questions
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-star text-warning me-2"></i>
+                        <strong>Time Management:</strong> Practice solving under time constraints
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-star text-warning me-2"></i>
+                        <strong>Confidence:</strong> Reduce exam anxiety through practice
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Need Help?</h5>
+                        <p class="card-text">If you need assistance with uploading PYQs or have questions about content guidelines, contact the admin team.</p>
+                        <div class="d-flex gap-2">
+                            <a href="https://wa.me/7827587477" class="btn btn-danger" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>Contact Admin
+                            </a>
+                            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-danger">
+                                <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

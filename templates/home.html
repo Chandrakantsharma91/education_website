@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block title %}Home - ExamMate & NotesMaker{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4 fw-bold mb-4">Your Complete University Companion</h1>
+                <p class="lead mb-5">Access Previous Year Questions, Expert Notes, Video Solutions, and Order Hard Copy Notes - All in One Place!</p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <a href="{{ url_for('notes') }}" class="btn btn-light btn-lg px-4">
+                        <i class="fas fa-book me-2"></i>View Notes
+                    </a>
+                    <a href="{{ url_for('pyqs') }}" class="btn btn-outline-light btn-lg px-4">
+                        <i class="fas fa-file-alt me-2"></i>View PYQs
+                    </a>
+                    <a href="{{ url_for('videos') }}" class="btn btn-outline-light btn-lg px-4">
+                        <i class="fas fa-video me-2"></i>Watch Videos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2 class="fw-bold">What We Offer</h2>
+                <p class="text-muted">Comprehensive educational resources for university students</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <a href="{{ url_for('pyqs') }}" class="text-decoration-none">
+                    <div class="feature-box text-center card-hover">
+                        <div class="mb-3">
+                            <i class="fas fa-file-pdf fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold">Previous Year Questions</h5>
+                        <p class="text-muted small">University-wise, course-wise, and year-wise PYQs in PDF format</p>
+                        <a href="{{ url_for('pyqs') }}" class="btn btn-primary btn-sm">View PYQs</a>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <a href="{{ url_for('notes') }}" class="text-decoration-none">
+                    <div class="feature-box text-center card-hover">
+                        <div class="mb-3">
+                            <i class="fas fa-sticky-note fa-3x text-success"></i>
+                        </div>
+                        <h5 class="fw-bold">Expert Notes</h5>
+                        <p class="text-muted small">Chapter-wise notes with detailed explanations and examples</p>
+                        <a href="{{ url_for('notes') }}" class="btn btn-success btn-sm">View Notes</a>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <a href="{{ url_for('videos') }}" class="text-decoration-none">
+                    <div class="feature-box text-center card-hover">
+                        <div class="mb-3">
+                            <i class="fas fa-play-circle fa-3x text-warning"></i>
+                        </div>
+                        <h5 class="fw-bold">Video Solutions</h5>
+                        <p class="text-muted small">Topic-wise video explanations and problem-solving sessions</p>
+                        <a href="{{ url_for('videos') }}" class="btn btn-warning btn-sm">Watch Videos</a>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-box text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-print fa-3x text-danger"></i>
+                    </div>
+                    <h5 class="fw-bold">Hard Copy Notes</h5>
+                    <p class="text-muted small">Order physical copies of notes for offline studying</p>
+                    <a href="{{ url_for('order') }}" class="btn btn-danger btn-sm">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Upload Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="fw-bold mb-3">Share Your Knowledge</h2>
+                <p class="lead text-muted mb-4">Upload question papers, syllabus, or notes to help fellow students. Admin approval required for quality assurance.</p>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="badge bg-primary">Question Papers</span>
+                    <span class="badge bg-success">Syllabus</span>
+                    <span class="badge bg-info">Notes</span>
+                    <span class="badge bg-warning">Study Material</span>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <a href="{{ url_for('upload') }}" class="btn btn-primary btn-lg px-5 py-3">
+                    <i class="fas fa-upload me-2"></i>Upload Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h3 class="text-primary fw-bold">1000+</h3>
+                        <p class="text-muted mb-0">Notes Available</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h3 class="text-success fw-bold">500+</h3>
+                        <p class="text-muted mb-0">PYQs Collection</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h3 class="text-warning fw-bold">200+</h3>
+                        <p class="text-muted mb-0">Video Solutions</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h3 class="text-danger fw-bold">1000+</h3>
+                        <p class="text-muted mb-0">Happy Students</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="fw-bold mb-2">Ready to Excel in Your Studies?</h2>
+                <p class="mb-0">Join thousands of students who are already benefiting from our comprehensive educational resources.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                <a href="{{ url_for('admin_login') }}" class="btn btn-light btn-lg me-3">Admin Login</a>
+                <a href="https://wa.me/7827587477" class="btn btn-outline-light btn-lg" target="_blank">
+                    <i class="fab fa-whatsapp me-2"></i>Chat with Us
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

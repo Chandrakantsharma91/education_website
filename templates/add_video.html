@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block title %}Add Video - ExamMate & NotesMaker{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="fw-bold mb-3">Add Video Solutions - PK.Hindustani</h1>
+                <p class="lead text-muted">Add educational videos for student learning</p>
+                <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+                    <span class="badge bg-primary">Video Links</span>
+                    <span class="badge bg-success">Admin Only</span>
+                    <span class="badge bg-info">Educational Content</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add Video Form -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0"><i class="fas fa-plus me-2"></i>Add Video Solution</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            <div class="mb-3">
+                                <label for="title" class="form-label fw-bold">Video Title</label>
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Enter video title (e.g., 'Calculus - Integration Techniques')" required>
+                                <div class="form-text">Provide a clear and descriptive title for the video</div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="subject" class="form-label fw-bold">Subject</label>
+                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="e.g., Mathematics, Physics, Chemistry">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="class_course" class="form-label fw-bold">Class/Course</label>
+                                    <input type="text" class="form-control" id="class_course" name="class_course" placeholder="e.g., Class 12, B.Tech, MBA">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="video_url" class="form-label fw-bold">Video URL</label>
+                                <input type="url" class="form-control" id="video_url" name="video_url" placeholder="Enter YouTube or video link URL" required>
+                                <div class="form-text">Paste the complete URL of the video (YouTube, Vimeo, etc.)</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="description" class="form-label fw-bold">Description</label>
+                                <textarea class="form-control" id="description" name="description" rows="4" placeholder="Describe what this video covers and its educational value" required></textarea>
+                                <div class="form-text">Provide details about the video content and learning objectives</div>
+                            </div>
+                            
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <strong>Note:</strong> The video will be immediately available to students after submission. Ensure the content is educational and appropriate.
+                            </div>
+                            
+                            <div class="d-flex gap-3">
+                                <button type="submit" class="btn btn-warning text-dark btn-lg">
+                                    <i class="fas fa-plus me-2"></i>Add Video
+                                </button>
+                                <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-secondary btn-lg">
+                                    <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Guidelines -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h3 class="fw-bold mb-4">Video Upload Guidelines</h3>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title text-success">
+                                    <i class="fas fa-check-circle me-2"></i>Recommended Content
+                                </h5>
+                                <ul class="list-unstyled ms-3">
+                                    <li><i class="fas fa-check text-success me-2"></i>Educational tutorial videos</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Problem-solving sessions</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Concept explanations</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Exam preparation videos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title text-danger">
+                                    <i class="fas fa-times-circle me-2"></i>Prohibited Content
+                                </h5>
+                                <ul class="list-unstyled ms-3">
+                                    <li><i class="fas fa-times text-danger me-2"></i>Copyrighted material</li>
+                                    <li><i class="fas fa-times text-danger me-2"></i>Inappropriate or offensive content</li>
+                                    <li><i class="fas fa-times text-danger me-2"></i>Irrelevant or misleading videos</li>
+                                    <li><i class="fas fa-times text-danger me-2"></i>Low-quality or unclear content</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-warning">
+                    <h6 class="alert-heading"><i class="fas fa-exclamation-triangle me-2"></i>Quality Standards:</h6>
+                    <ul class="mb-0">
+                        <li>Ensure videos are educational and relevant to students</li>
+                        <li>Use clear and descriptive titles</li>
+                        <li>Provide accurate descriptions of video content</li>
+                        <li>Verify video links are working and accessible</li>
+                        <li>Prefer videos with good audio and video quality</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tips Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h4 class="fw-bold mb-3">Tips for Effective Videos</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <i class="fas fa-lightbulb text-warning me-2"></i>
+                        <strong>Clear Audio:</strong> Ensure good sound quality for better understanding
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-lightbulb text-warning me-2"></i>
+                        <strong>Visual Aids:</strong> Use diagrams, animations, and examples
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-lightbulb text-warning me-2"></i>
+                        <strong>Step-by-Step:</strong> Break down complex concepts into manageable steps
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-lightbulb text-warning me-2"></i>
+                        <strong>Practice Problems:</strong> Include solved examples and exercises
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Need Help?</h5>
+                        <p class="card-text">If you need assistance with adding videos or have questions about content guidelines, contact the admin team.</p>
+                        <div class="d-flex gap-2">
+                            <a href="https://wa.me/7827587477" class="btn btn-warning text-dark" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>Contact Admin
+                            </a>
+                            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-warning text-dark">
+                                <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

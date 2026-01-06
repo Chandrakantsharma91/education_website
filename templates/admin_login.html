@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Login - ExamMate & NotesMaker{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto text-center">
+                <h1 class="fw-bold mb-3">Admin Login - PK.Hindustani</h1>
+                <p class="lead text-muted">Access the admin panel to manage content</p>
+                <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+                    <span class="badge bg-primary">Secure</span>
+                    <span class="badge bg-success">Protected</span>
+                    <span class="badge bg-info">Authorized Access</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Login Form -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="fas fa-user-shield me-2"></i>Admin Authentication</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-bold">Email Address</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your admin email (pkh99314930@gmail.com)" required>
+                                <div class="form-text">Enter your admin email address</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="password" class="form-label fw-bold">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password (pk88488848)" required>
+                                <div class="form-text">Enter your admin password</div>
+                            </div>
+                            
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <strong>Admin Credentials:</strong> Email: pkh99314930@gmail.com, Password: pk88488848
+                            </div>
+                            
+                            <div class="d-flex gap-3">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-sign-in-alt me-2"></i>Login
+                                </button>
+                                <a href="{{ url_for('home') }}" class="btn btn-outline-secondary btn-lg">
+                                    <i class="fas fa-arrow-left me-2"></i>Back to Home
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Security Information -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h3 class="fw-bold mb-4">Security Information</h3>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">
+                                    <i class="fas fa-shield-alt me-2"></i>Secure Access
+                                </h5>
+                                <ul class="list-unstyled ms-3">
+                                    <li><i class="fas fa-check text-success me-2"></i>Encrypted password storage</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Session-based authentication</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Protected admin routes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title text-warning">
+                                    <i class="fas fa-user-secret me-2"></i>Admin Responsibilities
+                                </h5>
+                                <ul class="list-unstyled ms-3">
+                                    <li><i class="fas fa-check text-success me-2"></i>Keep credentials secure</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Logout after use</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Report suspicious activity</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-info">
+                    <h6 class="alert-heading"><i class="fas fa-info-circle me-2"></i>For Admins:</h6>
+                    <ul class="mb-0">
+                        <li>Use strong, unique passwords</li>
+                        <li>Never share admin credentials</li>
+                        <li>Regularly review admin activities</li>
+                        <li>Ensure all content follows guidelines</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact for Issues -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h4 class="fw-bold mb-3">Having Login Issues?</h4>
+                <p class="text-muted">If you're experiencing problems with admin login or have forgotten your credentials, please contact the system administrator.</p>
+                <div class="d-flex flex-column gap-2">
+                    <a href="https://wa.me/7827587477" class="btn btn-primary" target="_blank">
+                        <i class="fab fa-whatsapp me-2"></i>Contact Admin
+                    </a>
+                    <a href="mailto:pkh99314930@gmail.com" class="btn btn-outline-primary">
+                        <i class="fas fa-envelope me-2"></i>Send Email
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Admin Features</h5>
+                        <p class="card-text">Once logged in, you'll have access to:</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-plus-circle text-success me-2"></i>Upload notes and PYQs</li>
+                            <li><i class="fas fa-video text-warning me-2"></i>Add video solutions</li>
+                            <li><i class="fas fa-check-circle text-info me-2"></i>Approve student uploads</li>
+                            <li><i class="fas fa-shopping-cart text-primary me-2"></i>Manage orders</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

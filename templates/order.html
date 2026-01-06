@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+
+{% block title %}Order Hard Copy Notes - ExamMate & NotesMaker{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="fw-bold mb-3">Order Hard Copy Notes</h1>
+                <p class="lead text-muted">Get physical copies of notes delivered to your doorstep</p>
+                <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+                    <span class="badge bg-primary">Quality Print</span>
+                    <span class="badge bg-success">Fast Delivery</span>
+                    <span class="badge bg-info">Affordable</span>
+                    <span class="badge bg-warning">Convenient</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Order Form -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"><i class="fas fa-print me-2"></i>Place Your Order</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label fw-bold">Full Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label fw-bold">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="address" class="form-label fw-bold">Delivery Address</label>
+                                <textarea class="form-control" id="address" name="address" rows="3" placeholder="Enter your complete delivery address" required></textarea>
+                                <div class="form-text">Please provide a complete address for accurate delivery</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="course" class="form-label fw-bold">Course/Subject</label>
+                                <input type="text" class="form-control" id="course" name="course" placeholder="Enter your course or subject name" required>
+                                <div class="form-text">Specify the course or subject for which you need notes</div>
+                            </div>
+                            
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <strong>Note:</strong> Our team will contact you regarding availability, pricing, and delivery details. Please ensure your contact information is accurate.
+                            </div>
+                            
+                            <div class="d-flex gap-3">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="fas fa-shopping-cart me-2"></i>Place Order
+                                </button>
+                                <a href="{{ url_for('home') }}" class="btn btn-outline-secondary btn-lg">
+                                    <i class="fas fa-arrow-left me-2"></i>Cancel
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Order Benefits -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="fw-bold mb-4">Why Order Hard Copy Notes?</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Offline Access:</strong> Study without needing internet connection
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Better Focus:</strong> Reduced screen time and distractions
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Note Taking:</strong> Write notes and highlights directly on pages
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Exam Preparation:</strong> Ideal for last-minute revision
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Long-term Use:</strong> Keep as reference material for future use
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Order Process</h5>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker bg-success"></div>
+                                <div class="timeline-content">
+                                    <h6>1. Place Order</h6>
+                                    <p class="small text-muted">Fill out the order form with your details</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker bg-info"></div>
+                                <div class="timeline-content">
+                                    <h6>2. Contact Confirmation</h6>
+                                    <p class="small text-muted">We'll contact you regarding availability and pricing</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker bg-warning"></div>
+                                <div class="timeline-content">
+                                    <h6>3. Payment & Processing</h6>
+                                    <p class="small text-muted">Confirm payment and we'll process your order</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker bg-primary"></div>
+                                <div class="timeline-content">
+                                    <h6>4. Delivery</h6>
+                                    <p class="small text-muted">Get your notes delivered to your address</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Info -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h4 class="fw-bold mb-3">Pricing Information</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">
+                                        <i class="fas fa-rupee-sign text-success me-2"></i>
+                                        <strong>Notes:</strong> Starting from ₹100 per subject
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-rupee-sign text-success me-2"></i>
+                                        <strong>Complete Set:</strong> Special discounts available
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">
+                                        <i class="fas fa-truck text-primary me-2"></i>
+                                        <strong>Delivery:</strong> Free within city, nominal charges outside
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-clock text-warning me-2"></i>
+                                        <strong>Time:</strong> 3-7 working days depending on location
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="alert alert-warning mt-3">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            <strong>Note:</strong> Exact pricing will be communicated after order placement based on your specific requirements.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h4 class="fw-bold mb-3">Questions About Ordering?</h4>
+                <p class="text-muted">If you have any questions about the ordering process, pricing, or delivery, feel free to contact us.</p>
+                <div class="d-flex flex-column gap-2">
+                    <a href="https://wa.me/7827587477" class="btn btn-success" target="_blank">
+                        <i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp
+                    </a>
+                    <a href="mailto:pkh99314930@gmail.com" class="btn btn-outline-success">
+                        <i class="fas fa-envelope me-2"></i>Send Email
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Delivery Areas</h5>
+                        <p class="card-text">We deliver to most areas. Contact us to confirm delivery availability in your location.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-success" onclick="scrollToForm()">
+                                <i class="fas fa-print me-2"></i>Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function scrollToForm() {
+    document.querySelector('form').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+{% endblock %}

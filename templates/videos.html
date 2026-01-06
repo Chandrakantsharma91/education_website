@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+
+{% block title %}Video Solutions - ExamMate & NotesMaker{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="fw-bold mb-3">Video Solutions</h1>
+                <p class="lead text-muted">Topic-wise video explanations and problem-solving sessions</p>
+                <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+                    <span class="badge bg-primary">Step-by-Step</span>
+                    <span class="badge bg-success">Concept Clearing</span>
+                    <span class="badge bg-info">Problem Solving</span>
+                    <span class="badge bg-warning">Exam Tips</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Videos Grid -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            {% if videos %}
+                {% for video in videos %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-warning text-dark">
+                            <i class="fas fa-play-circle me-2"></i>Video Solution
+                        </div>
+                        <div class="card-body">
+                        <h5 class="card-title">{{ video.title or 'Untitled Video' }}</h5>
+                        <p class="card-text text-muted small">
+                            <i class="fas fa-play-circle me-2"></i>
+                            {{ video.subject or 'General' }} - {{ video.class_course or 'All Classes' }}
+                        </p>
+                            <p class="card-text text-muted small mb-3">
+                                <i class="fas fa-calendar-alt me-2"></i>
+                                Uploaded: {{ video.created_at.strftime('%B %d, %Y') if video.created_at else 'Unknown' }}
+                            </p>
+                            <p class="card-text">{{ video.description or 'No description available.' }}</p>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge bg-warning text-dark">Video</span>
+                                <span class="badge bg-secondary">Educational</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <div class="d-flex gap-2">
+                                <a href="{{ video.video_url }}" class="btn btn-warning text-dark btn-sm" target="_blank">
+                                    <i class="fas fa-play me-2"></i>Watch Video
+                                </a>
+                                <a href="{{ video.video_url }}" class="btn btn-outline-warning text-dark btn-sm" target="_blank">
+                                    <i class="fas fa-external-link-alt me-2"></i>Open in New Tab
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-12">
+                    <div class="text-center py-5">
+                        <i class="fas fa-video fa-3x text-muted mb-3"></i>
+                        <h5 class="text-muted">No videos available yet</h5>
+                        <p class="text-muted">Check back soon for video solutions and explanations</p>
+                        <a href="{{ url_for('home') }}" class="btn btn-primary">Back to Home</a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- Video Benefits -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="fw-bold mb-4">Why Watch Our Videos?</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Visual Learning:</strong> Complex concepts explained through animations and diagrams
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Expert Guidance:</strong> Learn from experienced educators and subject experts
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Flexible Pace:</strong> Pause, rewind, and rewatch as needed
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Problem Solving:</strong> Step-by-step solutions to difficult problems
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Exam Preparation:</strong> Tips and strategies for exam success
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Suggest a Video Topic</h5>
+                        <p class="card-text">Have a topic you'd like to see explained in a video? Let us know what you need!</p>
+                        <div class="d-flex gap-2">
+                            <a href="https://wa.me/7827587477" class="btn btn-warning text-dark" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>Suggest Topic
+                            </a>
+                            <a href="{{ url_for('home') }}" class="btn btn-outline-warning text-dark">
+                                <i class="fas fa-home me-2"></i>Back to Home
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Study Tips -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h4 class="fw-bold mb-3">Maximize Your Video Learning</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">
+                                        <i class="fas fa-circle text-warning me-2"></i>
+                                        Take notes while watching
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-circle text-warning me-2"></i>
+                                        Pause and rewind difficult concepts
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-circle text-warning me-2"></i>
+                                        Practice problems after watching
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">
+                                        <i class="fas fa-circle text-warning me-2"></i>
+                                        Watch in a quiet environment
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-circle text-warning me-2"></i>
+                                        Revisit videos before exams
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-circle text-warning me-2"></i>
+                                        Share helpful videos with classmates
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Popular Topics -->
+{% if videos %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="fw-bold mb-4">Popular Video Topics</h3>
+                <div class="row">
+                    {% for video in videos[:6] %}
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">{{ video.title }}</h6>
+                                <p class="card-text small text-muted">{{ video.description[:100] }}{% if video.description|length > 100 %}...{% endif %}</p>
+                                <a href="{{ video.video_url }}" class="btn btn-warning btn-sm" target="_blank">
+                                    <i class="fas fa-play me-2"></i>Watch Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %}PYQs - ExamMate & NotesMaker{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="fw-bold mb-3">Previous Year Questions</h1>
+                <p class="lead text-muted">University-wise, course-wise, and year-wise question papers</p>
+                <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+                    <span class="badge bg-primary">University Exams</span>
+                    <span class="badge bg-success">Entrance Tests</span>
+                    <span class="badge bg-info">Practice Papers</span>
+                    <span class="badge bg-warning">Solved Papers</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PYQs Grid -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            {% if pyqs %}
+                {% for pyq in pyqs %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-danger text-white">
+                            <i class="fas fa-file-alt me-2"></i>Previous Year Question
+                        </div>
+                        <div class="card-body">
+                        <h5 class="card-title">{{ pyq.description or 'Untitled PYQ' }}</h5>
+                        <p class="card-text text-muted small">
+                            <i class="fas fa-university me-2"></i>
+                            {{ pyq.university or 'Various Universities' }} - {{ pyq.course or 'All Courses' }}
+                        </p>
+                            <p class="card-text text-muted small">
+                                <i class="fas fa-calendar-alt me-2"></i>
+                                Uploaded: {{ pyq.created_at.strftime('%B %d, %Y') if pyq.created_at else 'Unknown' }}
+                            </p>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge bg-danger">PDF</span>
+                                <span class="badge bg-secondary">Exam Paper</span>
+                            </div>
+                            <p class="text-muted small">
+                                <i class="fas fa-download me-2"></i>
+                                Download and practice with real exam questions
+                            </p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <div class="d-flex gap-2">
+                                <a href="{{ url_for('uploaded_file', filename=pyq.filename) }}" class="btn btn-danger btn-sm" download>
+                                    <i class="fas fa-download me-2"></i>Download PDF
+                                </a>
+                                <a href="{{ url_for('uploaded_file', filename=pyq.filename) }}" class="btn btn-outline-danger btn-sm" target="_blank">
+                                    <i class="fas fa-eye me-2"></i>View Online
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-12">
+                    <div class="text-center py-5">
+                        <i class="fas fa-file-alt fa-3x text-muted mb-3"></i>
+                        <h5 class="text-muted">No PYQs available yet</h5>
+                        <p class="text-muted">Check back soon or contact admin for more question papers</p>
+                        <a href="{{ url_for('home') }}" class="btn btn-primary">Back to Home</a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="fw-bold mb-4">Benefits of Solving PYQs</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Exam Pattern:</strong> Understand the format and structure of your exams
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Important Topics:</strong> Identify frequently asked questions and important topics
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Time Management:</strong> Practice solving questions within time limits
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Confidence Building:</strong> Reduce exam anxiety through familiarization
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Self Assessment:</strong> Evaluate your preparation level and identify weak areas
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Looking for Specific PYQs?</h5>
+                        <p class="card-text">Can't find PYQs for your university or course? Upload your question papers to help others!</p>
+                        <div class="d-flex gap-2">
+                            <a href="{{ url_for('upload') }}" class="btn btn-danger">Upload PYQs</a>
+                            <a href="https://wa.me/7827587477" class="btn btn-outline-danger" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>Request PYQs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tips Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h4 class="fw-bold mb-3">Tips for Effective PYQ Practice</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">
+                                        <i class="fas fa-circle text-primary me-2"></i>
+                                        Solve papers under timed conditions
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-circle text-primary me-2"></i>
+                                        Analyze your mistakes and learn from them
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-circle text-primary me-2"></i>
+                                        Focus on understanding concepts, not just answers
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">
+                                        <i class="fas fa-circle text-primary me-2"></i>
+                                        Practice regularly, not just before exams
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-circle text-primary me-2"></i>
+                                        Compare your answers with model solutions
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-circle text-primary me-2"></i>
+                                        Track your progress over time
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

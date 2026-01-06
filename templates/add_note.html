@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+
+{% block title %}Add Notes - ExamMate & NotesMaker{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="fw-bold mb-3">Add New Notes - PK.Hindustani</h1>
+                <p class="lead text-muted">Upload study materials for students</p>
+                <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+                    <span class="badge bg-primary">PDF Upload</span>
+                    <span class="badge bg-success">Admin Only</span>
+                    <span class="badge bg-info">Quality Content</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add Note Form -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"><i class="fas fa-plus me-2"></i>Add Study Notes</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="file" class="form-label fw-bold">Select PDF File</label>
+                                <input type="file" class="form-control" id="file" name="file" accept=".pdf" required>
+                                <div class="form-text">Upload the PDF file containing your notes</div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="subject" class="form-label fw-bold">Subject</label>
+                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="e.g., Mathematics, Physics, Chemistry">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="class_course" class="form-label fw-bold">Class/Course</label>
+                                    <input type="text" class="form-control" id="class_course" name="class_course" placeholder="e.g., Class 12, B.Tech, MBA">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="description" class="form-label fw-bold">Description</label>
+                                <textarea class="form-control" id="description" name="description" rows="4" placeholder="Describe these notes (e.g., 'Mathematics - Calculus Chapter 1', 'Physics - Thermodynamics Notes')" required></textarea>
+                                <div class="form-text">Provide a clear description to help students find relevant content</div>
+                            </div>
+                            
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <strong>Note:</strong> The uploaded notes will be immediately available to students after submission.
+                            </div>
+                            
+                            <div class="d-flex gap-3">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="fas fa-upload me-2"></i>Upload Notes
+                                </button>
+                                <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-secondary btn-lg">
+                                    <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Guidelines -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h3 class="fw-bold mb-4">Notes Upload Guidelines</h3>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title text-success">
+                                    <i class="fas fa-check-circle me-2"></i>Recommended Content
+                                </h5>
+                                <ul class="list-unstyled ms-3">
+                                    <li><i class="fas fa-check text-success me-2"></i>Chapter-wise study materials</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Exam preparation notes</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Concept explanations</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Practice problems with solutions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title text-danger">
+                                    <i class="fas fa-times-circle me-2"></i>Prohibited Content
+                                </h5>
+                                <ul class="list-unstyled ms-3">
+                                    <li><i class="fas fa-times text-danger me-2"></i>Copyrighted material</li>
+                                    <li><i class="fas fa-times text-danger me-2"></i>Incomplete or poor quality content</li>
+                                    <li><i class="fas fa-times text-danger me-2"></i>Irrelevant or misleading descriptions</li>
+                                    <li><i class="fas fa-times text-danger me-2"></i>Personal information</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-warning">
+                    <h6 class="alert-heading"><i class="fas fa-exclamation-triangle me-2"></i>Quality Standards:</h6>
+                    <ul class="mb-0">
+                        <li>Ensure PDF files are clear and readable</li>
+                        <li>Provide accurate and helpful descriptions</li>
+                        <li>Organize content logically</li>
+                        <li>Use appropriate file names</li>
+                        <li>Verify content is educational and appropriate</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tips Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h4 class="fw-bold mb-3">Tips for Effective Notes</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <i class="fas fa-lightbulb text-warning me-2"></i>
+                        <strong>Clear Structure:</strong> Organize content with headings and subheadings
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-lightbulb text-warning me-2"></i>
+                        <strong>Visual Aids:</strong> Include diagrams, charts, and examples where helpful
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-lightbulb text-warning me-2"></i>
+                        <strong>Key Points:</strong> Highlight important concepts and formulas
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-lightbulb text-warning me-2"></i>
+                        <strong>Practice:</strong> Include solved examples and practice problems
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Need Help?</h5>
+                        <p class="card-text">If you need assistance with uploading notes or have questions about content guidelines, contact the admin team.</p>
+                        <div class="d-flex gap-2">
+                            <a href="https://wa.me/7827587477" class="btn btn-success" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>Contact Admin
+                            </a>
+                            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-success">
+                                <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
