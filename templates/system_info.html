@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}System Information - Admin Panel{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="fw-bold mb-3">System Information</h1>
+                <p class="lead text-muted">Server and application status details</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- System Info -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0"><i class="fas fa-server me-2"></i>System Status</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="text-primary mb-3">Application Info</h5>
+                                <table class="table table-sm">
+                                    <tr>
+                                        <td><strong>Python Version:</strong></td>
+                                        <td>{{ system_info.python_version }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Platform:</strong></td>
+                                        <td>{{ system_info.platform }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Environment:</strong></td>
+                                        <td>
+                                            <span class="badge bg-{{ 'success' if system_info.environment == 'production' else 'warning' }}">
+                                                {{ system_info.environment|title }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Debug Mode:</strong></td>
+                                        <td>
+                                            <span class="badge bg-{{ 'danger' if system_info.debug_mode else 'success' }}">
+                                                {{ 'Enabled' if system_info.debug_mode else 'Disabled' }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-success mb-3">Database Info</h5>
+                                <table class="table table-sm">
+                                    <tr>
+                                        <td><strong>Database Type:</strong></td>
+                                        <td>{{ system_info.database_type }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Connection Status:</strong></td>
+                                        <td>
+                                            <span class="badge bg-{{ 'success' if system_info.mongodb_connected else 'warning' }}">
+                                                {{ 'Connected' if system_info.mongodb_connected else 'Mock Mode' }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Total Collections:</strong></td>
+                                        <td>{{ system_info.total_collections }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Server Time:</strong></td>
+                                        <td>{{ system_info.server_time }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="text-warning mb-3">File System</h5>
+                                <table class="table table-sm">
+                                    <tr>
+                                        <td><strong>Upload Folder:</strong></td>
+                                        <td>
+                                            <span class="badge bg-{{ 'success' if system_info.upload_folder_exists else 'danger' }}">
+                                                {{ 'Exists' if system_info.upload_folder_exists else 'Missing' }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Upload Path:</strong></td>
+                                        <td><code>{{ system_info.upload_folder_path }}</code></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-primary">
+                        <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

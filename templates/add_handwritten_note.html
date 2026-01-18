@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Add Video - ExamMate & NotesMaker{% endblock %}
+{% block title %}Add Handwritten Notes - ExamMate & NotesMaker{% endblock %}
 
 {% block content %}
 <!-- Page Header -->
@@ -8,33 +8,33 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
-                <h1 class="fw-bold mb-3">Add Video Solutions - PK.Hindustani</h1>
-                <p class="lead text-muted">Add educational videos for student learning</p>
+                <h1 class="fw-bold mb-3">Add Handwritten Notes - PK.Hindustani</h1>
+                <p class="lead text-muted">Upload beautifully handwritten study materials</p>
                 <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-                    <span class="badge bg-primary">Video Links</span>
+                    <span class="badge bg-primary">PDF Upload</span>
                     <span class="badge bg-success">Admin Only</span>
-                    <span class="badge bg-info">Educational Content</span>
+                    <span class="badge bg-info">Handwritten</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Add Video Form -->
+<!-- Add Handwritten Note Form -->
 <section class="py-5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="card border-0 shadow">
-                    <div class="card-header bg-warning text-dark">
-                        <h4 class="mb-0"><i class="fas fa-plus me-2"></i>Add Video Solution</h4>
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0"><i class="fas fa-pencil-alt me-2"></i>Add Handwritten Notes</h4>
                     </div>
                     <div class="card-body">
-                        <form method="POST">
+                        <form method="POST" enctype="multipart/form-data">
                             <div class="mb-3">
-                                <label for="title" class="form-label fw-bold">Video Title</label>
-                                <input type="text" class="form-control" id="title" name="title" placeholder="Enter video title (e.g., 'Calculus - Integration Techniques')" required>
-                                <div class="form-text">Provide a clear and descriptive title for the video</div>
+                                <label for="file" class="form-label fw-bold">Select PDF File</label>
+                                <input type="file" class="form-control" id="file" name="file" accept=".pdf" required>
+                                <div class="form-text">Upload the PDF file containing your handwritten notes</div>
                             </div>
                             
                             <div class="row mb-3">
@@ -49,25 +49,19 @@
                             </div>
                             
                             <div class="mb-3">
-                                <label for="video_url" class="form-label fw-bold">Video URL</label>
-                                <input type="url" class="form-control" id="video_url" name="video_url" placeholder="Enter YouTube or video link URL" required>
-                                <div class="form-text">Paste the complete URL of the video (YouTube, Vimeo, etc.)</div>
-                            </div>
-                            
-                            <div class="mb-3">
                                 <label for="description" class="form-label fw-bold">Description</label>
-                                <textarea class="form-control" id="description" name="description" rows="4" placeholder="Describe what this video covers and its educational value" required></textarea>
-                                <div class="form-text">Provide details about the video content and learning objectives</div>
+                                <textarea class="form-control" id="description" name="description" rows="4" placeholder="Describe these handwritten notes (e.g., 'Mathematics - Calculus Chapter 1 Handwritten', 'Physics - Thermodynamics Notes')" required></textarea>
+                                <div class="form-text">Provide a clear description to help students find relevant content</div>
                             </div>
                             
                             <div class="alert alert-info">
                                 <i class="fas fa-info-circle me-2"></i>
-                                <strong>Note:</strong> The video will be immediately available to students after submission. Ensure the content is educational and appropriate.
+                                <strong>Note:</strong> The uploaded handwritten notes will be immediately available to students after submission.
                             </div>
                             
                             <div class="d-flex gap-3">
-                                <button type="submit" class="btn btn-warning text-dark btn-lg">
-                                    <i class="fas fa-plus me-2"></i>Add Video
+                                <button type="submit" class="btn btn-info btn-lg">
+                                    <i class="fas fa-upload me-2"></i>Upload Handwritten Notes
                                 </button>
                                 <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-secondary btn-lg">
                                     <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
@@ -86,7 +80,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h3 class="fw-bold mb-4">Video Upload Guidelines</h3>
+                <h3 class="fw-bold mb-4">Handwritten Notes Upload Guidelines</h3>
                 
                 <div class="row">
                     <div class="col-md-6">
@@ -96,10 +90,10 @@
                                     <i class="fas fa-check-circle me-2"></i>Recommended Content
                                 </h5>
                                 <ul class="list-unstyled ms-3">
-                                    <li><i class="fas fa-check text-success me-2"></i>Educational tutorial videos</li>
-                                    <li><i class="fas fa-check text-success me-2"></i>Problem-solving sessions</li>
-                                    <li><i class="fas fa-check text-success me-2"></i>Concept explanations</li>
-                                    <li><i class="fas fa-check text-success me-2"></i>Exam preparation videos</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Neatly handwritten notes</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Clear and readable handwriting</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Well-organized content</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Colorful diagrams and highlights</li>
                                 </ul>
                             </div>
                         </div>
@@ -111,10 +105,10 @@
                                     <i class="fas fa-times-circle me-2"></i>Prohibited Content
                                 </h5>
                                 <ul class="list-unstyled ms-3">
+                                    <li><i class="fas fa-times text-danger me-2"></i>Illegible handwriting</li>
                                     <li><i class="fas fa-times text-danger me-2"></i>Copyrighted material</li>
-                                    <li><i class="fas fa-times text-danger me-2"></i>Inappropriate or offensive content</li>
-                                    <li><i class="fas fa-times text-danger me-2"></i>Irrelevant or misleading videos</li>
-                                    <li><i class="fas fa-times text-danger me-2"></i>Low-quality or unclear content</li>
+                                    <li><i class="fas fa-times text-danger me-2"></i>Incomplete or poor quality scans</li>
+                                    <li><i class="fas fa-times text-danger me-2"></i>Personal information</li>
                                 </ul>
                             </div>
                         </div>
@@ -124,11 +118,11 @@
                 <div class="alert alert-warning">
                     <h6 class="alert-heading"><i class="fas fa-exclamation-triangle me-2"></i>Quality Standards:</h6>
                     <ul class="mb-0">
-                        <li>Ensure videos are educational and relevant to students</li>
-                        <li>Use clear and descriptive titles</li>
-                        <li>Provide accurate descriptions of video content</li>
-                        <li>Verify video links are working and accessible</li>
-                        <li>Prefer videos with good audio and video quality</li>
+                        <li>Ensure handwriting is clear and readable</li>
+                        <li>Provide accurate and helpful descriptions</li>
+                        <li>Organize content logically with proper spacing</li>
+                        <li>Use good quality scans or photos</li>
+                        <li>Verify content is educational and appropriate</li>
                     </ul>
                 </div>
             </div>
@@ -141,23 +135,23 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <h4 class="fw-bold mb-3">Tips for Effective Videos</h4>
+                <h4 class="fw-bold mb-3">Tips for Effective Handwritten Notes</h4>
                 <ul class="list-unstyled">
                     <li class="mb-2">
                         <i class="fas fa-lightbulb text-warning me-2"></i>
-                        <strong>Clear Audio:</strong> Ensure good sound quality for better understanding
+                        <strong>Clear Writing:</strong> Write neatly and legibly for better readability
                     </li>
                     <li class="mb-2">
                         <i class="fas fa-lightbulb text-warning me-2"></i>
-                        <strong>Visual Aids:</strong> Use diagrams, animations, and examples
+                        <strong>Visual Appeal:</strong> Use colors, highlights, and diagrams to make notes attractive
                     </li>
                     <li class="mb-2">
                         <i class="fas fa-lightbulb text-warning me-2"></i>
-                        <strong>Step-by-Step:</strong> Break down complex concepts into manageable steps
+                        <strong>Organization:</strong> Use headings, bullet points, and proper spacing
                     </li>
                     <li class="mb-2">
                         <i class="fas fa-lightbulb text-warning me-2"></i>
-                        <strong>Practice Problems:</strong> Include solved examples and exercises
+                        <strong>Quality Scans:</strong> Ensure high-quality scans or photos of your notes
                     </li>
                 </ul>
             </div>
@@ -165,12 +159,12 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Need Help?</h5>
-                        <p class="card-text">If you need assistance with adding videos or have questions about content guidelines, contact the admin team.</p>
+                        <p class="card-text">If you need assistance with uploading handwritten notes or have questions about content guidelines, contact the admin team.</p>
                         <div class="d-flex gap-2">
-                            <a href="https://wa.me/8882767568" class="btn btn-warning text-dark" target="_blank">
+                            <a href="https://wa.me/8882767568" class="btn btn-info" target="_blank">
                                 <i class="fab fa-whatsapp me-2"></i>Contact Admin
                             </a>
-                            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-warning text-dark">
+                            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-info">
                                 <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
                             </a>
                         </div>

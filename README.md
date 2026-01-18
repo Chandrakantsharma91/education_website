@@ -7,6 +7,7 @@ A complete, beginner-friendly but professional education website for university 
 ### 📚 Main Features
 - **Previous Year Questions (PYQs)** - University-wise, course-wise, and year-wise question papers
 - **Expert Notes** - Chapter-wise comprehensive study materials
+- **Handwritten Notes** - Beautifully handwritten notes with personal touch
 - **Video Solutions** - Topic-wise video explanations and problem-solving sessions
 - **Hard Copy Notes Order** - Simple order form for physical note delivery
 - **Student Upload Section** - Students can upload PDFs (question papers, syllabus, notes)
@@ -15,11 +16,12 @@ A complete, beginner-friendly but professional education website for university 
 ### 🔐 Admin Panel
 - Secure admin login with authentication
 - Protected admin routes
-- Admin dashboard for content management
-- Upload/edit/delete notes, PYQs, and videos
+- **Full Dashboard Control** - Complete management of all content
+- Upload/edit/delete notes, PYQs, videos, and handwritten notes
 - Approve or reject student uploads
 - Manage hard copy orders
 - View and manage downloads
+- **Storage Management** - Delete uploaded data to manage storage space
 
 ## Tech Stack
 
@@ -33,19 +35,19 @@ A complete, beginner-friendly but professional education website for university 
 ## Database Configuration
 
 **MongoDB Atlas Connection:**
-- Username: `pkh99314930_db_user`
-- Password: `eBcVI1S630bI7gqi`
-- Connection String: `mongodb+srv://pkh99314930_db_user:eBcVI1S630bI7gqi@cluster0.8qz9k.mongodb.net/`
+- Username: `pk88488848_db_user`
+- Password: `A9cbseJTvXToA2N0`
+- Connection String: `mongodb+srv://pk88488848_db_user:A9cbseJTvXToA2N0@cluster0.yik8h02.mongodb.net/`
 
 ## Admin Details
 
-- **Admin Name**: Pankaj Kumar
+- **Admin Name**: PK.Hindustani
 - **Admin Email**: pkh99314930@gmail.com
-- **Default Password**: `admin123` (Change this after first login)
+- **Default Password**: `pk88488848` (Change this after first login)
 
 ## WhatsApp Support
 
-- **WhatsApp Number**: +91 7827587477
+- **WhatsApp Number**: +91 8882767568
 - Floating WhatsApp button available on all pages
 
 ## Project Structure
@@ -164,7 +166,7 @@ Open your browser and navigate to:
 
 ### Getting Help
 - Contact: pkh99314930@gmail.com
-- WhatsApp: +91 7827587477
+- WhatsApp: +91 8882767568
 
 ## Development Notes
 
@@ -182,7 +184,7 @@ This project is created for educational purposes and is not licensed for commerc
 
 For technical support or questions:
 - Email: pkh99314930@gmail.com
-- WhatsApp: +91 7827587477
+- WhatsApp: +91 8882767568
 
 ---
 

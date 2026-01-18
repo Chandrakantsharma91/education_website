@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Notes - ExamMate & NotesMaker{% endblock %}
+{% block title %}Handwritten Notes - ExamMate & NotesMaker{% endblock %}
 
 {% block content %}
 <!-- Page Header -->
@@ -8,20 +8,20 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
-                <h1 class="fw-bold mb-3">Expert Notes</h1>
-                <p class="lead text-muted">Chapter-wise comprehensive notes for all subjects</p>
+                <h1 class="fw-bold mb-3">Handwritten Notes</h1>
+                <p class="lead text-muted">Beautifully handwritten notes with personal touch and clarity</p>
                 <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-                    <span class="badge bg-primary">Detailed Explanations</span>
-                    <span class="badge bg-success">Examples</span>
-                    <span class="badge bg-info">Diagrams</span>
-                    <span class="badge bg-warning">Key Points</span>
+                    <span class="badge bg-primary">Handwritten</span>
+                    <span class="badge bg-success">Clear Writing</span>
+                    <span class="badge bg-info">Personal Touch</span>
+                    <span class="badge bg-warning">Easy to Read</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Notes Grid -->
+<!-- Handwritten Notes Grid -->
 <section class="py-5">
     <div class="container">
         <div class="row g-4">
@@ -30,10 +30,10 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="card h-100">
                         <div class="card-header">
-                            <i class="fas fa-sticky-note me-2"></i>Study Material
+                            <i class="fas fa-pencil-alt me-2"></i>Handwritten Material
                         </div>
                         <div class="card-body">
-                        <h5 class="card-title">{{ note.description or 'Untitled Note' }}</h5>
+                        <h5 class="card-title">{{ note.description or 'Untitled Handwritten Note' }}</h5>
                         <p class="card-text text-muted small">
                             <i class="fas fa-book me-2"></i>
                             {{ note.subject or 'General' }} - {{ note.class_course or 'All Classes' }}
@@ -44,7 +44,8 @@
                             </p>
                             <div class="d-flex flex-wrap gap-2 mb-3">
                                 <span class="badge bg-primary">PDF</span>
-                                <span class="badge bg-secondary">Downloadable</span>
+                                <span class="badge bg-secondary">Handwritten</span>
+                                <span class="badge bg-info">Downloadable</span>
                             </div>
                         </div>
                         <div class="card-footer bg-transparent border-0">
@@ -63,8 +64,8 @@
             {% else %}
                 <div class="col-12">
                     <div class="text-center py-5">
-                        <i class="fas fa-sticky-note fa-3x text-muted mb-3"></i>
-                        <h5 class="text-muted">No notes available yet</h5>
+                        <i class="fas fa-pencil-alt fa-3x text-muted mb-3"></i>
+                        <h5 class="text-muted">No handwritten notes available yet</h5>
                         <p class="text-muted">Check back soon or contact admin for more materials</p>
                         <a href="{{ url_for('home') }}" class="btn btn-primary">Back to Home</a>
                     </div>
@@ -79,31 +80,31 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <h3 class="fw-bold mb-4">Why Choose Our Notes?</h3>
+                <h3 class="fw-bold mb-4">Why Choose Handwritten Notes?</h3>
                 <ul class="list-unstyled">
                     <li class="mb-3">
                         <i class="fas fa-check-circle text-success me-2"></i>
-                        <strong>Expert Created:</strong> Prepared by experienced educators and subject matter experts
+                        <strong>Personal Touch:</strong> Carefully handwritten with attention to detail
                     </li>
                     <li class="mb-3">
                         <i class="fas fa-check-circle text-success me-2"></i>
-                        <strong>Comprehensive:</strong> Cover all important topics and concepts
+                        <strong>Easier to Read:</strong> Natural handwriting that's comfortable to study from
                     </li>
                     <li class="mb-3">
                         <i class="fas fa-check-circle text-success me-2"></i>
-                        <strong>Exam Focused:</strong> Aligned with university syllabus and exam patterns
+                        <strong>Visual Appeal:</strong> Beautiful presentation that makes studying enjoyable
                     </li>
                     <li class="mb-3">
                         <i class="fas fa-check-circle text-success me-2"></i>
-                        <strong>Easy to Understand:</strong> Clear explanations with examples and diagrams
+                        <strong>Memory Retention:</strong> Handwritten notes help in better memory retention
                     </li>
                 </ul>
             </div>
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Need Specific Notes?</h5>
-                        <p class="card-text">Can't find notes for your specific subject or topic? Let us know what you need!</p>
+                        <h5 class="card-title">Need Specific Handwritten Notes?</h5>
+                        <p class="card-text">Can't find handwritten notes for your specific subject or topic? Let us know what you need!</p>
                         <div class="d-flex gap-2">
                             <a href="{{ url_for('upload') }}" class="btn btn-primary">Request Notes</a>
                             <a href="https://wa.me/8882767568" class="btn btn-outline-primary" target="_blank">

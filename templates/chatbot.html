@@ -257,7 +257,11 @@
         }
         
         if (lowerMessage.includes('note') || lowerMessage.includes('study')) {
-            return "Study notes are managed by Admin PK.Hindustani. Content is currently being uploaded and will be available soon. Please check back later or contact admin for updates.";
+            return "We offer both typed expert notes and beautiful handwritten notes, all managed by Admin PK.Hindustani. Content is currently being uploaded and will be available soon. Please check back later or contact admin for updates.";
+        }
+        
+        if (lowerMessage.includes('handwritten') || lowerMessage.includes('handwriting')) {
+            return "Handwritten notes provide a personal touch and are easier to study from. They are managed by Admin PK.Hindustani and will be available soon. Check the Handwritten Notes section!";
         }
         
         if (lowerMessage.includes('pyq') || lowerMessage.includes('question') || lowerMessage.includes('paper')) {
@@ -277,7 +281,7 @@
         }
         
         if (lowerMessage.includes('help') || lowerMessage.includes('support')) {
-            return "I'm here to help! You can:\n\n1. Ask about notes, PYQs, or videos\n2. Learn about uploading content\n3. Get help with navigation\n4. Contact Admin PK.Hindustani via WhatsApp at +91 7827587477";
+            return "I'm here to help! You can:\n\n1. Ask about notes, handwritten notes, PYQs, or videos\n2. Learn about uploading content\n3. Get help with navigation\n4. Contact Admin PK.Hindustani via WhatsApp at +91 8882767568";
         }
         
         if (lowerMessage.includes('thank')) {
@@ -288,7 +292,7 @@
             return "Goodbye! Don't forget to study hard and visit us again for more educational resources!";
         }
         
-        return "I'm still learning! For now, I can help you with:\n\n• Finding notes and study materials\n• Understanding our PYQ system\n• Learning about video solutions\n• Uploading content process\n• Admin information\n\nOr you can contact Admin PK.Hindustani at +91 7827587477";
+        return "I'm still learning! For now, I can help you with:\n\n• Finding notes and handwritten notes\n• Understanding our PYQ system\n• Learning about video solutions\n• Uploading content process\n• Admin information\n\nOr you can contact Admin PK.Hindustani at +91 8882767568";
     }
     
     // Close chat when clicking outside
