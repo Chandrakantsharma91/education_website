@@ -123,53 +123,110 @@ class MockCursor:
         return len(self.data)
 
 # MongoDB Configuration with improved error handling
+# db = None
+# try:
+#     MONGODB_URI = os.getenv('MONGODB_URI', 'mongodb+srv://pk88488848_db_user:A9cbseJTvXToA2N0@cluster0.yik8h02.mongodb.net/')
+#     if MONGODB_URI:
+#         client = MongoClient(MONGODB_URI, serverSelectionTimeoutMS=5000)
+#         # Test the connection
+#         client.admin.command('ping')
+#         db = client['education_website']
+#         logger.info("MongoDB connected successfully")
+#     else:
+#         logger.warning("MongoDB URI not configured, using in-memory storage")
+#         db = None
+# except Exception as e:
+#     logger.error(f"MongoDB connection failed: {e}")
+#     db = None
+#     logger.info("Using in-memory storage as fallback")
+
+
+
+# =========================
+# MongoDB Atlas Connection
+# =========================
+
+from pymongo.errors import ServerSelectionTimeoutError
+
 db = None
-try:
-    MONGODB_URI = os.getenv('MONGODB_URI', 'mongodb+srv://pk88488848_db_user:A9cbseJTvXToA2N0@cluster0.yik8h02.mongodb.net/')
-    if MONGODB_URI:
-        client = MongoClient(MONGODB_URI, serverSelectionTimeoutMS=5000)
-        # Test the connection
-        client.admin.command('ping')
-        db = client['education_website']
+MONGODB_URI = os.getenv("MONGODB_URI")
+
+if not MONGODB_URI:
+    logger.warning("MONGODB_URI not set. Using in-memory storage.")
+else:
+    try:
+        client = MongoClient(
+            MONGODB_URI,
+            tls=True,                       # REQUIRED for Atlas
+            serverSelectionTimeoutMS=5000,
+            connectTimeoutMS=5000,
+            socketTimeoutMS=5000
+        )
+
+        # Force actual connection
+        client.admin.command("ping")
+
+        db = client["education_website"]
         logger.info("MongoDB connected successfully")
-    else:
-        logger.warning("MongoDB URI not configured, using in-memory storage")
+
+    except ServerSelectionTimeoutError as e:
+        logger.error(f"MongoDB connection timeout: {e}")
         db = None
-except Exception as e:
-    logger.error(f"MongoDB connection failed: {e}")
-    db = None
-    logger.info("Using in-memory storage as fallback")
+
+    except Exception as e:
+        logger.error(f"MongoDB connection failed: {e}")
+        db = None
+
 
 # Initialize collections based on database availability
+# if db is not None:
+#     try:
+#         notes_collection = db['notes']
+#         pyqs_collection = db['pyqs']
+#         videos_collection = db['videos']
+#         orders_collection = db['orders']
+#         uploads_collection = db['uploads']
+#         handwritten_notes_collection = db['handwritten_notes']
+#         logger.info("MongoDB collections initialized successfully")
+#     except Exception as e:
+#         logger.error(f"Error initializing MongoDB collections: {e}")
+#         db = None
+#         # Fallback to mock collections
+#         notes_collection = MockCollection()
+#         pyqs_collection = MockCollection()
+#         videos_collection = MockCollection()
+#         orders_collection = MockCollection()
+#         uploads_collection = MockCollection()
+#         handwritten_notes_collection = MockCollection()
+#         logger.info("Fallback to in-memory collections due to MongoDB error")
+# else:
+#     # Fallback mock collections
+#     notes_collection = MockCollection()
+#     pyqs_collection = MockCollection()
+#     videos_collection = MockCollection()
+#     orders_collection = MockCollection()
+#     uploads_collection = MockCollection()
+#     handwritten_notes_collection = MockCollection()
+#     logger.info("Using in-memory storage as configured")
+
+
 if db is not None:
-    try:
-        notes_collection = db['notes']
-        pyqs_collection = db['pyqs']
-        videos_collection = db['videos']
-        orders_collection = db['orders']
-        uploads_collection = db['uploads']
-        handwritten_notes_collection = db['handwritten_notes']
-        logger.info("MongoDB collections initialized successfully")
-    except Exception as e:
-        logger.error(f"Error initializing MongoDB collections: {e}")
-        db = None
-        # Fallback to mock collections
-        notes_collection = MockCollection()
-        pyqs_collection = MockCollection()
-        videos_collection = MockCollection()
-        orders_collection = MockCollection()
-        uploads_collection = MockCollection()
-        handwritten_notes_collection = MockCollection()
-        logger.info("Fallback to in-memory collections due to MongoDB error")
+    notes_collection = db.notes
+    pyqs_collection = db.pyqs
+    videos_collection = db.videos
+    orders_collection = db.orders
+    uploads_collection = db.uploads
+    handwritten_notes_collection = db.handwritten_notes
+    logger.info("MongoDB collections initialized")
 else:
-    # Fallback mock collections
     notes_collection = MockCollection()
     pyqs_collection = MockCollection()
     videos_collection = MockCollection()
     orders_collection = MockCollection()
     uploads_collection = MockCollection()
     handwritten_notes_collection = MockCollection()
-    logger.info("Using in-memory storage as configured")
+    logger.info("Using in-memory mock collections")
+
 
 # Admin credentials from environment variables
 ADMIN_EMAIL = os.getenv('ADMIN_EMAIL', 'pkh99314930@gmail.com')
