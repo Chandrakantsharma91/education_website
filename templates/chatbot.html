@@ -249,62 +249,169 @@
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
     
-    function getBotResponse(message) {
-        const lowerMessage = message.toLowerCase();
+    // function getBotResponse(message) {
+    //     const lowerMessage = message.toLowerCase();
         
-        if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
-            return "Hello! Welcome to ExamMate & NotesMaker. How can I help you with your studies today? Content is managed by Admin PK.Hindustani.";
-        }
+    //     if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
+    //         return "Hello! Welcome to ExamMate & NotesMaker. How can I help you with your studies today? Content is managed by Admin PK.Hindustani.";
+    //     }
         
-        if (lowerMessage.includes('note') || lowerMessage.includes('study')) {
-            return "We offer both typed expert notes and beautiful handwritten notes, all managed by Admin PK.Hindustani. Content is currently being uploaded and will be available soon. Please check back later or contact admin for updates.";
-        }
+    //     if (lowerMessage.includes('notes') || lowerMessage.includes('study')) {
+    //         return "We offer both typed expert notes and beautiful handwritten notes, all managed by Admin PK.Hindustani. Content is currently being uploaded and will be available soon. Please check back later or contact admin for updates.";
+    //     }
         
-        if (lowerMessage.includes('handwritten') || lowerMessage.includes('handwriting')) {
-            return "Handwritten notes provide a personal touch and are easier to study from. They are managed by Admin PK.Hindustani and will be available soon. Check the Handwritten Notes section!";
-        }
+    //     if (lowerMessage.includes('handwritten') || lowerMessage.includes('handwriting')) {
+    //         return "Handwritten notes provide a personal touch and are easier to study from. They are managed by Admin PK.Hindustani and will be available soon. Check the Handwritten Notes section!";
+    //     }
         
-        if (lowerMessage.includes('pyq') || lowerMessage.includes('question') || lowerMessage.includes('paper')) {
-            return "Previous Year Questions are managed by Admin PK.Hindustani. Content is currently being uploaded and will be available soon. Please check back later or contact admin for updates.";
-        }
+    //     if (lowerMessage.includes('pyq') || lowerMessage.includes('question') || lowerMessage.includes('paper')) {
+    //         return "Previous Year Questions are managed by Admin PK.Hindustani. Content is currently being uploaded and will be available soon. Please check back later or contact admin for updates.";
+    //     }
         
-        if (lowerMessage.includes('video') || lowerMessage.includes('solution')) {
-            return "Video solutions are managed by Admin PK.Hindustani. Content is currently being uploaded and will be available soon. Please check back later or contact admin for updates.";
-        }
+    //     if (lowerMessage.includes('video') || lowerMessage.includes('solution')) {
+    //         return "Video solutions are managed by Admin PK.Hindustani. Content is currently being uploaded and will be available soon. Please check back later or contact admin for updates.";
+    //     }
         
-        if (lowerMessage.includes('upload') || lowerMessage.includes('submit')) {
-            return "Students can upload content through the Upload page, but all uploads require admin approval from PK.Hindustani before being published. This ensures quality content for everyone!";
-        }
+    //     if (lowerMessage.includes('upload') || lowerMessage.includes('submit')) {
+    //         return "Students can upload content through the Upload page, but all uploads require admin approval from PK.Hindustani before being published. This ensures quality content for everyone!";
+    //     }
         
-        if (lowerMessage.includes('admin') || lowerMessage.includes('pk')) {
-            return "PK.Hindustani is the admin who manages all content on ExamMate & NotesMaker. Admin login is available at /admin/login for authorized users only.";
-        }
+    //     if (lowerMessage.includes('admin') || lowerMessage.includes('pk')) {
+    //         return "PK.Hindustani is the admin who manages all content on ExamMate & NotesMaker. Admin login is available at /admin/login for authorized users only.";
+    //     }
         
-        if (lowerMessage.includes('help') || lowerMessage.includes('support')) {
-            return "I'm here to help! You can:\n\n1. Ask about notes, handwritten notes, PYQs, or videos\n2. Learn about uploading content\n3. Get help with navigation\n4. Contact Admin PK.Hindustani via WhatsApp at +91 8882767568";
-        }
+    //     if (lowerMessage.includes('help') || lowerMessage.includes('support')) {
+    //         return "I'm here to help! You can:\n\n1. Ask about notes, handwritten notes, PYQs, or videos\n2. Learn about uploading content\n3. Get help with navigation\n4. Contact Admin PK.Hindustani via WhatsApp at +91 8882767568";
+    //     }
         
-        if (lowerMessage.includes('thank')) {
-            return "You're welcome! If you need any more help, just ask. Happy studying! 📚";
-        }
+    //     if (lowerMessage.includes('thank')) {
+    //         return "You're welcome! If you need any more help, just ask. Happy studying! 📚";
+    //     }
         
-        if (lowerMessage.includes('bye') || lowerMessage.includes('goodbye')) {
-            return "Goodbye! Don't forget to study hard and visit us again for more educational resources!";
-        }
+    //     if (lowerMessage.includes('bye') || lowerMessage.includes('goodbye')) {
+    //         return "Goodbye! Don't forget to study hard and visit us again for more educational resources!";
+    //     }
         
-        return "I'm still learning! For now, I can help you with:\n\n• Finding notes and handwritten notes\n• Understanding our PYQ system\n• Learning about video solutions\n• Uploading content process\n• Admin information\n\nOr you can contact Admin PK.Hindustani at +91 8882767568";
-    }
+    //     return "I'm still learning! For now, I can help you with:\n\n• Finding notes and handwritten notes\n• Understanding our PYQ system\n• Learning about video solutions\n• Uploading content process\n• Admin information\n\nOr you can contact Admin PK.Hindustani at +91 8882767568";
+    // }
     
-    // Close chat when clicking outside
-    document.addEventListener('click', function(event) {
-        const chatbotContainer = document.getElementById('chatbot-container');
-        const chatbotWindow = document.getElementById('chatbot-window');
+    // // Close chat when clicking outside
+    // document.addEventListener('click', function(event) {
+    //     const chatbotContainer = document.getElementById('chatbot-container');
+    //     const chatbotWindow = document.getElementById('chatbot-window');
         
-        if (isChatOpen && !chatbotContainer.contains(event.target)) {
-            // Don't close if clicking inside the window
-            if (!chatbotWindow.contains(event.target)) {
-                toggleChat();
+    //     if (isChatOpen && !chatbotContainer.contains(event.target)) {
+    //         // Don't close if clicking inside the window
+    //         if (!chatbotWindow.contains(event.target)) {
+    //             toggleChat();
+    //         }
+    //     }
+    // });
+
+
+    function normalize(text) {
+    return text
+        .toLowerCase()
+        .replace(/[^\w\s]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+const INTENTS = [
+    {
+        name: "greeting",
+        keywords: ["hi", "hello", "hey", "good morning", "good evening"],
+        response: "Hello! 👋 I’m your ExamMate & NotesMaker assistant. How can I help you today?"
+    },
+    {
+        name: "notes",
+        keywords: ["notes", "study material", "pdf", "typed notes", "class notes"],
+        response: "We provide **high-quality typed notes and handwritten notes**, curated and approved by Admin PK.Hindustani. You can explore them in the Notes section."
+    },
+    {
+        name: "handwritten_notes",
+        keywords: ["handwritten", "handwriting", "written notes"],
+        response: "Handwritten notes are designed to be exam-friendly and easy to revise. You can find them in the **Handwritten Notes** section once published."
+    },
+    {
+        name: "pyqs",
+        keywords: ["pyq", "previous year", "question paper", "old papers"],
+        response: "Previous Year Question Papers (PYQs) are uploaded subject-wise and year-wise. Check the **PYQs** section for available content."
+    },
+    {
+        name: "videos",
+        keywords: ["video", "lecture", "solution", "explanation"],
+        response: "Video explanations are added to help you understand concepts visually. Visit the **Videos** section for learning resources."
+    },
+    {
+        name: "upload",
+        keywords: ["upload", "submit", "contribute"],
+        response: "You can upload study material from the **Upload** page. All submissions are reviewed and approved by Admin PK.Hindustani."
+    },
+    {
+        name: "order",
+        keywords: ["order", "buy", "purchase"],
+        response: "You can place an order for notes directly from the **Order** page. Once submitted, our team will contact you."
+    },
+    {
+        name: "admin",
+        keywords: ["admin", "pk", "owner"],
+        response: "All content on ExamMate & NotesMaker is managed by **PK.Hindustani** to ensure accuracy and quality."
+    },
+    {
+        name: "help",
+        keywords: ["help", "support", "assist"],
+        response: "I can help you with:\n• Notes & Handwritten Notes\n• PYQs\n• Video Solutions\n• Uploading content\n• Orders\n\nJust ask!"
+    },
+    {
+        name: "thanks",
+        keywords: ["thank", "thanks"],
+        response: "You’re welcome! 😊 Happy studying!"
+    },
+    {
+        name: "bye",
+        keywords: ["bye", "goodbye", "see you"],
+        response: "Goodbye! 📚 Come back anytime for more study resources."
+    }
+];
+
+function detectIntent(message) {
+    let bestMatch = null;
+    let highestScore = 0;
+
+    for (const intent of INTENTS) {
+        let score = 0;
+        for (const keyword of intent.keywords) {
+            if (message.includes(keyword)) {
+                score++;
             }
         }
-    });
+        if (score > highestScore) {
+            highestScore = score;
+            bestMatch = intent;
+        }
+    }
+
+    return bestMatch;
+}
+
+function getBotResponse(message) {
+    const cleanMessage = normalize(message);
+    const intent = detectIntent(cleanMessage);
+
+    if (intent) {
+        return intent.response;
+    }
+
+    return (
+        "I want to give you the **most accurate answer**.\n\n" +
+        "You can ask me about:\n" +
+        "• Notes & Handwritten Notes\n" +
+        "• PYQs\n" +
+        "• Videos\n" +
+        "• Orders\n" +
+        "• Uploading content\n\n" +
+        "Or contact Admin PK.Hindustani for direct help."
+    );
+}
 </script>
