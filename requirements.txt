@@ -9,3 +9,4 @@ click==8.3.1
 blinker==1.9.0
 dnspython==2.8.0
 colorama==0.4.6
+gunicorn
